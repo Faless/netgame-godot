@@ -47,6 +47,7 @@ class NetGameClient: public Node {
 	void _handle_tcp_pcmd(DVector<uint8_t> pkt, uint8_t pcmd);
 	void _update_signal_mode();
 	void _flush_packets();
+	void _clear_queues();
 
 	void _queue_signal(const char *sig, CID id);
 	void _queue_signal(const char *sig, CID id,

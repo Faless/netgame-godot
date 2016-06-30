@@ -87,6 +87,26 @@ void NetGameServer::_thread_start(void*s) {
 	self->_clear_clients();
 }
 
+void NetGameServer::_clear_queues() {
+	// Clear UDP queue
+	udp_mutex->lock();
+	while(udp_queue.size() > 0) {
+		QueuedPacket *qp = udp_queue.get(0);
+		udp_queue.remove(0);
+		memdelete(qp);
+	}
+	udp_mutex->unlock();
+
+	// Clear Signal queue
+	signal_mutex->lock();
+	while(signal_queue.size() > 0) {
+		QueuedSignal *qs = signal_queue.get(0);
+		signal_queue.remove(0);
+		memdelete(qs);
+	}
+	signal_mutex->unlock();
+}
+
 /***
  * Manage UDP packets
  */
@@ -281,7 +301,9 @@ void NetGameServer::stop() {
 		memdelete(thread);
 		tcp_server->stop();
 		udp_server->close();
+		_clear_queues();
 	}
+
 	thread = NULL;
 }
 
@@ -450,6 +472,7 @@ NetGameServer::~NetGameServer() {
 		Thread::wait_to_finish(thread);
 		memdelete(thread);
 	}
+
 	memdelete(udp_mutex);
 	memdelete(conn_mutex);
 	memdelete(signal_mutex);

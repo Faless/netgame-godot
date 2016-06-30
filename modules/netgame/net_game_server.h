@@ -37,6 +37,7 @@ class NetGameServer: public Node {
 	void _handle_udp();
 	void _handle_tcp();
 	void _update_signal_mode();
+	void _clear_queues();
 
 	NetGameServerConnection* _handle_udp_handshake(CID id, CSE secret);
 	NetGameServerConnection *_get_client(int id);

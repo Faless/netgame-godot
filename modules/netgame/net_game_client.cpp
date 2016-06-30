@@ -113,7 +113,35 @@ void NetGameClient::_thread_start(void*s) {
 
 	// Notify disconnection
 	self->_queue_signal(SIGNAL_CLIENT_DISCONNECT, self->client_id);
+}
 
+void NetGameClient::_clear_queues() {
+	// Clear TCP queue
+	tcp_mutex->lock();
+	while(tcp_queue.size() > 0) {
+		QueuedPacket *qp = tcp_queue.get(0);
+		tcp_queue.remove(0);
+		memdelete(qp);
+	}
+	tcp_mutex->unlock();
+
+	// Clear UDP queue
+	udp_mutex->lock();
+	while(udp_queue.size() > 0) {
+		QueuedPacket *qp = udp_queue.get(0);
+		udp_queue.remove(0);
+		memdelete(qp);
+	}
+	udp_mutex->unlock();
+
+	// Clear Signal queue
+	signal_mutex->lock();
+	while(signal_queue.size() > 0) {
+		QueuedSignal *qs = signal_queue.get(0);
+		signal_queue.remove(0);
+		memdelete(qs);
+	}
+	signal_mutex->unlock();
 }
 
 void NetGameClient::_flush_packets() {
@@ -334,6 +362,7 @@ void NetGameClient::close() {
 		memdelete(thread);
 		tcp_stream->disconnect();
 		udp->close();
+		_clear_queues();
 	}
 	thread = NULL;
 }

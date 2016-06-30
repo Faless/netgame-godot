@@ -273,5 +273,14 @@ NetGameServerConnection::NetGameServerConnection(CID id, CSE s, Ref<StreamPeerTC
 }
 
 NetGameServerConnection::~NetGameServerConnection() {
+	// Clear the TCP queue
+	out_mutex->lock();
+	while(tcp_queue.size() > 0) {
+		QueuedPacket *qp = tcp_queue.get(0);
+		tcp_queue.remove(0);
+		memdelete(qp);
+	}
+	out_mutex->unlock();
+
 	memdelete(out_mutex);
 }
