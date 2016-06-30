@@ -246,8 +246,8 @@ void NetGameClient::_handle_udp_pcmd(DVector<uint8_t> pkt, uint8_t pcmd) {
 
 bool NetGameClient::_is_valid_time(uint8_t cmd, uint8_t time) {
 	return time == 0 || server_time[cmd] == 0 ||
-		(server_time[cmd] < time and (time - server_time[cmd]) < 128) ||
-		(time < server_time[cmd] and (server_time[cmd] - time) > 128);
+		(server_time[cmd] < time && (time - server_time[cmd]) < 128) ||
+		(time < server_time[cmd] && (server_time[cmd] - time) > 128);
 }
 
 void NetGameClient::_send_tcp_ping() {

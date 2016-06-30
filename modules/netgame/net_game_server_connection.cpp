@@ -205,8 +205,8 @@ DVector<uint8_t> NetGameServerConnection::build_pkt(QueuedPacket *qp) {
 
 bool NetGameServerConnection::_is_valid_time(uint8_t cmd, uint8_t time) {
 	return time == 0 || client_time[cmd] == 0 ||
-		(client_time[cmd] < time and (time - client_time[cmd]) < 128) ||
-		(time < client_time[cmd] and (client_time[cmd] - time) > 128);
+		(client_time[cmd] < time && (time - client_time[cmd]) < 128) ||
+		(time < client_time[cmd] && (client_time[cmd] - time) > 128);
 }
 
 bool NetGameServerConnection::is_connected() {
