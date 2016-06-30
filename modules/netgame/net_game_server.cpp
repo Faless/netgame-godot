@@ -212,7 +212,7 @@ void NetGameServer::_queue_signal(const char *sig, CID id)
 		emit_signal(sig, id);
 	}
 	else {
-		if(signal_queue.size() >= SIG_QUEUE_SIZE * connections.size()) {
+		if(signal_queue.size() >= SIG_QUEUE_SIZE * (connections.size()+1)) {
 			WARN_PRINT("SIGNAL QUEUE SIZE EXCEEDED");
 			return;
 		}
@@ -351,7 +351,7 @@ Error NetGameServer::broadcast_tcp(const DVector<uint8_t> &pkt, int cmd) {
  */
 Error NetGameServer::_enqueue_udp(CID id, const DVector<uint8_t> &pkt,
 				int cmd, bool timed) {
-	if(udp_queue.size() >= PKT_QUEUE_SIZE * connections.size()) {
+	if(udp_queue.size() >= PKT_QUEUE_SIZE * (connections.size()+1)) {
 		WARN_PRINT("UDP QUEUE SIZE EXCEEDED");
 		return ERR_OUT_OF_MEMORY;
 	}
