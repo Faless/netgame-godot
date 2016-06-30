@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<resource_file type="PackedScene" subresource_count="3" version="2.1" version_name="Godot Engine v2.1.alpha.custom_build">
+	<ext_resource path="res://fonts/mono-regular-18.fnt" type="BitmapFont" index="1">
+	</ext_resource>
+	<ext_resource path="res://client.gd" type="Script" index="0">
+	</ext_resource>
+	<main_resource>
+
+		<dictionary name="_bundled" shared="false">
+			<string> "conn_count" </string>
+			<int> 2 </int>
+			<string> "conns" </string>
+			<int_array  len="12"> 				4, 0, 28, 27, 2, 0, 5, 0, 28, 29, 2, 0 </int_array>
+			<string> "editable_instances" </string>
+			<array  len="0" shared="false">
+			</array>
+			<string> "names" </string>
+			<string_array  len="30">
+				<string> "Scrollable" </string>
+				<string> "focus/ignore_mouse" </string>
+				<string> "focus/stop_mouse" </string>
+				<string> "size_flags/horizontal" </string>
+				<string> "size_flags/vertical" </string>
+				<string> "margin/left" </string>
+				<string> "margin/top" </string>
+				<string> "margin/right" </string>
+				<string> "margin/bottom" </string>
+				<string> "script/script" </string>
+				<string> "Control" </string>
+				<string> "ScrollContainer" </string>
+				<string> "scroll/horizontal" </string>
+				<string> "scroll/vertical" </string>
+				<string> "ClientLog" </string>
+				<string> "custom_fonts/font" </string>
+				<string> "percent_visible" </string>
+				<string> "lines_skipped" </string>
+				<string> "max_lines_visible" </string>
+				<string> "Label" </string>
+				<string> "NetGameClient" </string>
+				<string> "UDP" </string>
+				<string> "toggle_mode" </string>
+				<string> "text" </string>
+				<string> "flat" </string>
+				<string> "Button" </string>
+				<string> "TCP" </string>
+				<string> "_on_Button_pressed" </string>
+				<string> "pressed" </string>
+				<string> "_on_TCP_pressed" </string>
+			</string_array>
+			<string> "node_count" </string>
+			<int> 6 </int>
+			<string> "node_paths" </string>
+			<array  len="0" shared="false">
+			</array>
+			<string> "nodes" </string>
+			<int_array  len="152"> 				-1, -1, 10, 0, -1, 9, 1, 0, 2, 1, 3, 2, 4, 2, 5, 3, 6, 3, 7, 4, 8, 5, 9, 6, 0, 0, 0, 11, 11, -1, 10, 1, 0, 2, 1, 3, 2, 4, 2, 5, 3, 6, 3, 7, 4, 8, 5, 12, 1, 13, 1, 0, 1, 0, 19, 14, -1, 12, 1, 0, 2, 1, 3, 7, 4, 7, 5, 8, 6, 8, 7, 3, 8, 9, 15, 10, 16, 11, 17, 12, 18, 13, 0, 0, 0, 20, 20, -1, 0, 0, 0, 0, 25, 21, -1, 12, 1, 0, 2, 1, 3, 7, 4, 7, 5, 3, 6, 3, 7, 14, 8, 15, 15, 10, 22, 0, 23, 16, 24, 0, 0, 0, 0, 25, 26, -1, 12, 1, 0, 2, 1, 3, 7, 4, 7, 5, 14, 6, 3, 7, 17, 8, 15, 15, 10, 22, 0, 23, 18, 24, 0, 0 </int_array>
+			<string> "variants" </string>
+			<array  len="19" shared="false">
+				<bool> False </bool>
+				<bool> True </bool>
+				<int> 3 </int>
+				<real> 0 </real>
+				<real> 1024 </real>
+				<real> 250 </real>
+				<resource  external="0">  </resource>
+				<int> 2 </int>
+				<real> -0 </real>
+				<real> 21 </real>
+				<resource  external="1">  </resource>
+				<real> 1 </real>
+				<int> 0 </int>
+				<int> -1 </int>
+				<real> 56 </real>
+				<real> 24 </real>
+				<string> "UDP" </string>
+				<real> 112 </real>
+				<string> "TCP" </string>
+			</array>
+			<string> "version" </string>
+			<int> 2 </int>
+		</dictionary>
+
+	</main_resource>
+</resource_file>
